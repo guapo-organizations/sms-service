@@ -17,7 +17,7 @@ func TestSendEmailCode(t *testing.T) {
 	//tls配置,文件好像是通过第二个参数也就是 x.test.youtube.com生成的...fuck！！！
 	creds, err := credentials.NewClientTLSFromFile(tls.Path("ca.pem"), "zldz.com")
 	//连接的时候添加tls配置，公钥？不懂
-	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(creds))
+	conn, err := grpc.Dial("localhost:50052", grpc.WithTransportCredentials(creds))
 
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
@@ -48,7 +48,7 @@ func TestValidateEmailCode(t *testing.T) {
 	//tls配置,文件好像是通过第二个参数也就是 x.test.youtube.com生成的...fuck！！！
 	creds, err := credentials.NewClientTLSFromFile(tls.Path("ca.pem"), "zldz.com")
 	//连接的时候添加tls配置，公钥？不懂
-	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(creds))
+	conn, err := grpc.Dial("localhost:50052", grpc.WithTransportCredentials(creds))
 
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
