@@ -41,9 +41,9 @@ func TestSendEmailCode(t *testing.T) {
 	t.Logf("结果:%v", r)
 }
 
-//验证码校验测试
+//
+////验证码校验测试
 func TestValidateEmailCode(t *testing.T) {
-
 	// Set up a connection to the server.
 	//tls配置,文件好像是通过第二个参数也就是 x.test.youtube.com生成的...fuck！！！
 	creds, err := credentials.NewClientTLSFromFile(tls.Path("ca.pem"), "zldz.com")

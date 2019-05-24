@@ -26,6 +26,7 @@ func SendEmailCode(email string) (bool, error) {
 	redis_client := cache.GetRedisClient()
 	//如果err没有报错，则是获取到了值
 	_, err := redis_client.Get(limit.CreateLimiKey(email, msg.PUBLISH_MODE_EMAIL, msg.PUBLISH_TYPE_CODE)).Result()
+
 	if err == redis.Nil {
 		//邮箱没有发送过
 		//生成验证码
@@ -82,6 +83,6 @@ func ValidateCode(key string, publish_mode string, publish_type string) (bool, e
 	if !strings.EqualFold(result, key) {
 		return false, nil
 	}
-	
+
 	return true, nil
 }
