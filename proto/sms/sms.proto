@@ -7,6 +7,10 @@ service Sms {
     //email发送验证码
     rpc SendEmailCode (SendEmailCodeRequest) returns (SendResultResponse) {
     }
+
+    //验证码校验
+    rpc ValidateCode (ValidateCodeRequest) returns (ValidateCodeResponse) {
+    }
 }
 
 //email发送验证码
@@ -19,3 +23,17 @@ message SendResultResponse {
     int64 errcode = 1;
     string errmsg = 2;
 }
+
+//验证码校验请求
+message ValidateCodeRequest {
+    string key = 1;
+    string code = 2;
+    string publish_mode = 3;
+    string publish_type = 4;
+}
+
+//验证码校验响应
+message ValidateCodeResponse {
+    bool result = 1;
+}
+
