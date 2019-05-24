@@ -2,7 +2,6 @@ package test
 
 import (
 	"context"
-	"flag"
 	"github.com/guapo-organizations/go-micro-secret/tls"
 	pb "github.com/guapo-organizations/sms-service/proto/sms"
 	"google.golang.org/grpc"
@@ -14,9 +13,6 @@ import (
 
 //email 发送验证测试
 func TestSendEmailCode(t *testing.T) {
-	var email string
-	flag.StringVar(&email, "email", "", "验证码邮件收件人")
-	flag.Parse()
 	// Set up a connection to the server.
 	//tls配置,文件好像是通过第二个参数也就是 x.test.youtube.com生成的...fuck！！！
 	creds, err := credentials.NewClientTLSFromFile(tls.Path("ca.pem"), "zldz.com")
@@ -35,7 +31,7 @@ func TestSendEmailCode(t *testing.T) {
 
 	//发送验证码
 	r, err := c.SendEmailCode(ctx, &pb.SendEmailCodeRequest{
-		Email: email,
+		Email: "51785816@qq.com",
 	})
 
 	if err != nil {
@@ -48,11 +44,6 @@ func TestSendEmailCode(t *testing.T) {
 //验证码校验测试
 func TestValidateEmailCode(t *testing.T) {
 
-	var email string
-	var code string
-	flag.StringVar(&email, "email", "", "验证码邮件收件人")
-	flag.StringVar(&code, "code", "", "输入的验证码")
-	flag.Parse()
 	// Set up a connection to the server.
 	//tls配置,文件好像是通过第二个参数也就是 x.test.youtube.com生成的...fuck！！！
 	creds, err := credentials.NewClientTLSFromFile(tls.Path("ca.pem"), "zldz.com")
@@ -71,8 +62,8 @@ func TestValidateEmailCode(t *testing.T) {
 
 	//验证验证码
 	r, err := c.ValidateCode(ctx, &pb.ValidateCodeRequest{
-		Key:         email,
-		Code:        code,
+		Key:         "51785816@qq.com",
+		Code:        "123456",
 		PublishMode: "email",
 		PublishType: "code",
 	})
