@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package sms;
+
+
+service Sms {
+    //email发送验证码
+    rpc SendEmailCode (SendEmailCodeRequest) returns (SendResultResponse) {
+    }
+}
+
+//email发送验证码
+message SendEmailCodeRequest {
+    string email = 1;
+}
+
+//发送结果
+message SendResultResponse {
+    int64 errcode = 1;
+    string errmsg = 2;
+}
