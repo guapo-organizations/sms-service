@@ -11,6 +11,7 @@ import (
 	"google.golang.org/grpc/credentials"
 	"log"
 	"net"
+	_ "github.com/guapo-organizations/sms-service/lib/config"
 )
 
 func main() {
