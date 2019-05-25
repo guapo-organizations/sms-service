@@ -67,7 +67,7 @@ func SendEmailCode(email string) (bool, error) {
 }
 
 //验证code是否正确
-func ValidateCode(key string, publish_mode string, publish_type string) (bool, error) {
+func ValidateCode(code string, key string, publish_mode string, publish_type string) (bool, error) {
 	redis_client := cache.GetRedisClient()
 	result, err := redis_client.Get(limit.CreateLimiKey(key, publish_mode, publish_type)).Result()
 	if err == redis.Nil {
@@ -78,9 +78,9 @@ func ValidateCode(key string, publish_mode string, publish_type string) (bool, e
 	if err != nil {
 		return false, err
 	}
-
+	
 	//比较一下
-	if !strings.EqualFold(result, key) {
+	if !strings.EqualFold(result, code) {
 		return false, nil
 	}
 
