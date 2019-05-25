@@ -1,0 +1,80 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "proto/sms/sms.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/zldz/sms/send_email_code": {
+      "post": {
+        "summary": "email发送验证码",
+        "operationId": "SendEmailCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/smsSendResultResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/smsSendEmailCodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "smsSendEmailCodeRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "title": "email发送验证码"
+    },
+    "smsSendResultResponse": {
+      "type": "object",
+      "properties": {
+        "errcode": {
+          "type": "string",
+          "format": "int64"
+        },
+        "errmsg": {
+          "type": "string"
+        }
+      },
+      "title": "发送结果"
+    },
+    "smsValidateCodeResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "验证码校验响应"
+    }
+  }
+}

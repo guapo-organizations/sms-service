@@ -2,10 +2,15 @@ syntax = "proto3";
 
 package sms;
 
+import "google/api/annotations.proto";
 
 service Sms {
     //email发送验证码
     rpc SendEmailCode (SendEmailCodeRequest) returns (SendResultResponse) {
+        option (google.api.http) = {
+            post : "/zldz/sms/send_email_code"
+            body : "*"
+        };
     }
 
     //验证码校验
