@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "sms-service",
+      "name": "develop-sms-service",
       "min_uptime": "12h",
       "script": "./micro",
       "instances": 1,
@@ -10,7 +10,7 @@
       "restart_delay": 4000
     },
     {
-      "name": "gateway-sms-service",
+      "name": "develop-gateway-sms-service",
       "min_uptime": "12h",
       "script": "./gateway/gateway_micro",
       "instances": 1,
