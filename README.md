@@ -92,3 +92,29 @@ config文件夹中必须拥有一下配置
   "gateway_port": "50051"  #grpc网关服务器端口
 }
 ```
+
+### progorm.json  PM2配置文件解释
+```
+{
+  "apps": [
+    {
+      "name": "sms-service",    //进程名
+      "min_uptime": "12h",      //12小时重启一次
+      "script": "./micro",      //执行的脚本文件，我采用了相对路径
+      "instances": 1,           //开启一个进程
+      "watch": true,            //开启监听文件脚本所需要的文件是否有修改，配合restart_delay使用
+      "max_restarts": 10,       //异常重启最多重启10
+      "restart_delay": 4000     //单位是毫秒，如果发生了进程所需要的文件有修改，会在4秒后重启
+    },
+    {
+      "name": "gateway-sms-service",
+      "min_uptime": "12h",
+      "script": "./gateway/gateway_micro",
+      "instances": 1,
+      "watch": true,
+      "max_restarts": 10,
+      "restart_delay": 4000
+    }
+  ]
+}
+```
