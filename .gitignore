@@ -4,4 +4,4 @@ gateway/config
 *.exe
 gateway/*.exe
 micro
-gateway/micro
+gateway/gateway_micro
