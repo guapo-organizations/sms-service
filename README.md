@@ -23,6 +23,8 @@
 
 >>client 测试
 
+>>progorm.json是PM2的配置
+
 
 
 ## config 文件配置说明

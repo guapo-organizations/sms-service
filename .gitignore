@@ -1,3 +1,5 @@
 config/db.json
 config/redis.json
 gateway/config
+*.exe
+gateway/*.exe
