@@ -17,6 +17,24 @@
       "watch": true,
       "max_restarts": 10,
       "restart_delay": 4000
+    },
+    {
+      "name": "test-sms-service",
+      "min_uptime": "12h",
+      "script": "./micro.exe",
+      "instances": 1,
+      "watch": true,
+      "max_restarts": 10,
+      "restart_delay": 4000
+    },
+    {
+      "name": "test-gateway-sms-service",
+      "min_uptime": "12h",
+      "script": "./gateway/gateway_micro.exe",
+      "instances": 1,
+      "watch": true,
+      "max_restarts": 10,
+      "restart_delay": 4000
     }
   ]
 }
