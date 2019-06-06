@@ -2,10 +2,9 @@ package main
 
 import (
 	"context"
-	"github.com/guapo-organizations/go-micro-secret/tls"
 	pb "github.com/guapo-organizations/sms-service/proto/sms"
+	"github.com/guapo-organizations/sms-service/tls"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 	"log"
 	"time"
 )
@@ -13,7 +12,7 @@ import (
 func main() {
 	// Set up a connection to the server.
 	//tls配置,文件好像是通过第二个参数也就是 x.test.youtube.com生成的...fuck！！！
-	creds, err := credentials.NewClientTLSFromFile(tls.Path("ca.pem"), "zldz.com")
+	creds, err := tls.GetClientTLSFromFile("ca.pem","zldz.com")
 	//连接的时候添加tls配置，公钥？不懂
 	conn, err := grpc.Dial("localhost:50052", grpc.WithTransportCredentials(creds))
 

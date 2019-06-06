@@ -7,7 +7,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/guapo-organizations/go-micro-secret/frame_tool"
 	grpc_gateway_service_info "github.com/guapo-organizations/go-micro-secret/frame_tool/service"
-	"github.com/guapo-organizations/go-micro-secret/tls"
+	"github.com/guapo-organizations/sms-service/tls"
 	gw "github.com/guapo-organizations/sms-service/proto/sms"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
