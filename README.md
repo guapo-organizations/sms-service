@@ -21,6 +21,8 @@
 
 >> gateway 为grpc网关服务器的反向代理存放处
 
+>> rpc grpc服务存放处
+
 >>client 测试
 
 >>progorm.json是PM2的配置

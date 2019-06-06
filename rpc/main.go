@@ -16,7 +16,7 @@ import (
 func main() {
 	//加载一些公共的组件，比如数据库之类的
 	my_frame_tool := frame_tool.LyFrameTool{
-		ConfigPath: "./config",
+		ConfigPath: "../config",
 	}
 
 	my_frame_tool.Run()
@@ -24,7 +24,7 @@ func main() {
 
 	//tls配置
 	//第一个参数是公钥，第二个参数是私钥
-	creds, err := credentials.NewServerTLSFromFile("./config/tls/server1.pem", "./config/tls/server1.key")
+	creds, err := credentials.NewServerTLSFromFile("../config/tls/server1.pem", "../config/tls/server1.key")
 	if err != nil {
 		log.Fatalln("tls配置失败:", err)
 	}

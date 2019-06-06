@@ -9,7 +9,7 @@ var Email163Config *EmailConfig
 
 func init() {
 	if Email163Config == nil {
-		viper.AddConfigPath("./config")
+		viper.AddConfigPath("../config")
 		viper.SetConfigName("163email")
 		err := viper.ReadInConfig()
 		if err != nil {
