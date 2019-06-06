@@ -37,6 +37,8 @@ func GetClientTLSFromFile(certFile string, serverNameOverride string) (credentia
 
 //获取服务端tls加密的组件
 func GetServiceTLSFromFile(certFile, keyFile string) (credentials.TransportCredentials, error) {
+	certFile = path(certFile)
+	keyFile = path(keyFile)
 	creds, err := credentials.NewServerTLSFromFile(certFile, keyFile)
 
 	if err != nil {
