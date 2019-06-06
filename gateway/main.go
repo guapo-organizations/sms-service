@@ -16,7 +16,7 @@ import (
 //grpc网关
 
 func run() error {
-	my_frame_tool := frame_tool.LyFrameTool{
+	my_frame_tool := frame_tool.LyGatewayFrameTool{
 		ConfigPath: "./config",
 	}
 	my_frame_tool.Run()

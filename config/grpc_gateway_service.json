@@ -1,3 +1,4 @@
 {
-  "start": false
+  "start": true,
+  "gateway_port": "18081"
 }

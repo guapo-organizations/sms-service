@@ -19,7 +19,6 @@
 >> client 测试用的客户端存放处，里面存放的是golang的实现，别的语言的自己想办法
 
 >> gateway 为grpc网关服务器的反向代理存放处
->>>config grpc网关的服务器配置
 
 >>client 测试
 
