@@ -7,8 +7,8 @@ import (
 	_ "github.com/guapo-organizations/sms-service/lib/config"
 	pb "github.com/guapo-organizations/sms-service/proto/sms"
 	"github.com/guapo-organizations/sms-service/service"
-	"github.com/guapo-organizations/sms-service/tls"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
 	"log"
 	"net"
 )
@@ -24,7 +24,7 @@ func main() {
 
 	//tls配置
 	//第一个参数是公钥，第二个参数是私钥
-	creds, err := tls.GetServiceTLSFromFile("server1.pem", "server1.key")
+	creds, err := credentials.NewServerTLSFromFile("./config/tls/server1.pem", "./config/tls/server1.key")
 	if err != nil {
 		log.Fatalln("tls配置失败:", err)
 	}
