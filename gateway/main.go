@@ -7,10 +7,9 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/guapo-organizations/go-micro-secret/frame_tool"
 	grpc_gateway_service_info "github.com/guapo-organizations/go-micro-secret/frame_tool/service"
-	"github.com/guapo-organizations/sms-service/tls"
 	gw "github.com/guapo-organizations/sms-service/proto/sms"
+	"github.com/guapo-organizations/sms-service/tls"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 	"net/http"
 )
 
@@ -31,7 +30,7 @@ func run() error {
 	mux := runtime.NewServeMux()
 
 	//ssl/tls 初始化
-	creds, err := credentials.NewClientTLSFromFile(tls.Path("ca.pem"), "zldz.com")
+	creds, err := tls.GetClientTLSFromFile("ca.pem","zldz.com")
 	//带ssl/tls的拨号
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(creds)}
 
