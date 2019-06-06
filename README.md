@@ -6,6 +6,7 @@
 > account-serbice
 
 >>config 放一些配置文件，如db、 grpc服务的信息、redis、服务发现连接等
+>>>tls tls/ssl加密文件
 
 >>proto 里面定义是用protobuf定义服务的微服务
 >>>account 
@@ -21,8 +22,6 @@
 >> gateway 为grpc网关服务器的反向代理存放处
 
 >>client 测试
-
->>tls tls/ssl加密文件
 
 >>progorm.json是PM2的配置
 
