@@ -17,7 +17,7 @@ import (
 
 func run() error {
 	my_frame_tool := frame_tool.LyGatewayFrameTool{
-		ConfigPath: "./config",
+		ConfigPath: "../config",
 	}
 	my_frame_tool.Run()
 	gate_way_service_info := grpc_gateway_service_info.GetGrpcGateWayServiceInfo()
