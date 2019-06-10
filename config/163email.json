@@ -2,5 +2,7 @@
   "Host": "smtp.163.com",
   "Port": 465,
   "Email": "song8339702@163.com",
-  "Passwd": "s123456"
+  "Passwd": "s123456",
+  "Subject":"最靓的仔",
+  "Body":"亲，您有一份万事屋工作职位邀请码哦~：%s"
 }

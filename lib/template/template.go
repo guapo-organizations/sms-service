@@ -1,12 +1,23 @@
 package template
 
+import (
+	"github.com/spf13/viper"
+	"log"
+)
+
 var Code163Template *CodeTemplate
 
 func init() {
 	if Code163Template == nil {
+		viper.AddConfigPath("../config")
+		viper.SetConfigName("163email")
+		err := viper.ReadInConfig()
+		if err != nil {
+			log.Fatalln("template模板加载配置失败")
+		}
 		Code163Template = new(CodeTemplate)
-		Code163Template.Subject = "最靓的仔"
-		Code163Template.Body = "亲，您有一份万事屋工作职位邀请码哦~：%s"
+		Code163Template.Subject = viper.GetString("Subject")
+		Code163Template.Body = viper.GetString("Body")
 	}
 }
 
